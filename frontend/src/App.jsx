@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Shield, MessageCircle, Send } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 // Pages
 import StartingPage from './pages/StartingPage';
@@ -448,6 +448,8 @@ const AIAssistantButton = () => {
                     />
                     <button
                       type="submit"
+                      title="Send message"
+                      aria-label="Send message"
                       className="absolute right-2 top-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white p-2 rounded-md transition-colors disabled:opacity-50"
                       disabled={!chatInput.trim()}
                     >
@@ -456,7 +458,7 @@ const AIAssistantButton = () => {
                   </form>
 
                   <div className="text-xs text-gray-400 text-center mt-2">
-                    Examples: "blur all faces", "hide license plates", "remove text overlays", "mask personal information"
+                    Examples: &ldquo;blur all faces&rdquo;, &ldquo;hide license plates&rdquo;, &ldquo;remove text overlays&rdquo;, &ldquo;mask personal information&rdquo;
                   </div>
                 </div>
               </div>

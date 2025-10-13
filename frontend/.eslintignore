@@ -1,0 +1,8 @@
+dist
+node_modules
+*.config.js
+*.config.cjs
+build
+coverage
+.vscode
+.git

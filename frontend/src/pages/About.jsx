@@ -10,7 +10,7 @@ const About = () => {
             About Scannon.AI
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            We're on a mission to make privacy protection accessible to everyone through
+            We&apos;re on a mission to make privacy protection accessible to everyone through
             cutting-edge AI technology that automatically protects sensitive information in videos.
           </p>
         </div>

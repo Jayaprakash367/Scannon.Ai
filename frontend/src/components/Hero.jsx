@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import ScannonLogo from './ScannonLogo';
 
 const Hero = () => {
   return (

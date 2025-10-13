@@ -56,7 +56,7 @@ const UploadCard = () => {
       setStatus('uploading');
       setUploadProgress(0);
 
-      const response = await axios.post('http://localhost:8000/api/upload', formData, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -80,7 +80,7 @@ const UploadCard = () => {
   const pollProcessingStatus = async (filename) => {
     const interval = setInterval(async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/status/${filename}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/status/${filename}`);
 
         if (response.data.ready) {
           clearInterval(interval);
@@ -97,7 +97,7 @@ const UploadCard = () => {
 
   const handleDownload = () => {
     if (processedFile) {
-      window.open(`http://localhost:8000/api/download/${processedFile}`, '_blank');
+      window.open(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/download/${processedFile}`, '_blank');
     }
   };
 
