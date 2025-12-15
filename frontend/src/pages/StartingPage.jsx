@@ -50,20 +50,7 @@ const StartingPage = () => {
   }, [navigate]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 flex items-center justify-center px-4 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 opacity-20">
-          <div
-            className="w-full h-full"
-            style={{
-              backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%)',
-              backgroundSize: '100px 100px',
-            }}
-          />
-        </div>
-      </div>
-
+    <div className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
       {/* Floating Orbs */}
       <motion.div
         animate={{
@@ -75,7 +62,7 @@ const StartingPage = () => {
           repeat: Infinity,
           ease: 'linear',
         }}
-        className="absolute top-20 left-20 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl"
+        className="absolute top-20 left-20 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl z-10"
       />
       <motion.div
         animate={{
@@ -87,12 +74,12 @@ const StartingPage = () => {
           repeat: Infinity,
           ease: 'linear',
         }}
-        className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"
+        className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl z-10"
       />
 
       {/* Invisible Click Area */}
       <div
-        className="absolute inset-0 z-20 cursor-pointer"
+        className="absolute inset-0 z-30 cursor-pointer"
         onClick={handleClick}
       />
 
@@ -101,7 +88,7 @@ const StartingPage = () => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
-        className="relative z-10 text-center"
+        className="relative z-20 text-center"
       >
         {/* Animated Text */}
         <motion.div

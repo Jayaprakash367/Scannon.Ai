@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion';
-import { Zap, Shield, Target, Lock, Cpu, Eye } from 'lucide-react';
+import { Zap, Shield, Target, Lock, Cpu, Video } from 'lucide-react';
 import { useState } from 'react';
 
 const featuresData = [
+  {
+    icon: Video,
+    title: "🔴 Real-Time Blurring",
+    description: "Live webcam blurring with AI! Blur your face and documents in real-time during video calls or streams.",
+    gradient: "from-red-400 to-pink-500",
+    badge: "NEW"
+  },
   {
     icon: Zap,
     title: "Lightning Fast Processing",
@@ -17,27 +24,21 @@ const featuresData = [
   },
   {
     icon: Target,
-    title: "Precision Detection",
-    description: "99.9% accuracy in face and sensitive data detection using state-of-the-art machine learning models.",
+    title: "AI-Powered Detection",
+    description: "95%+ accuracy using MediaPipe + YOLOv8 + EasyOCR for comprehensive face, document, and text detection.",
     gradient: "from-pink-400 to-purple-500"
   },
   {
     icon: Lock,
     title: "Secure by Default",
-    description: "Videos are processed locally when possible, and cloud processing uses zero-knowledge architecture.",
+    description: "Videos are processed securely, and all sensitive data is automatically identified and protected.",
     gradient: "from-green-400 to-emerald-500"
   },
   {
     icon: Cpu,
-    title: "AI-Powered Technology",
-    description: "Advanced neural networks trained on millions of images for unparalleled performance and reliability.",
+    title: "Multi-Layer Protection",
+    description: "Detects faces, documents, license plates, screens, and sensitive text (emails, phone numbers, SSN).",
     gradient: "from-blue-400 to-indigo-500"
-  },
-  {
-    icon: Eye,
-    title: "Real-Time Preview",
-    description: "See the blurring effect in action with our real-time preview feature before final processing.",
-    gradient: "from-purple-400 to-pink-500"
   }
 ];
 
@@ -80,7 +81,7 @@ const Features = () => {
   );
 };
 
-const FeatureCard = ({ icon: Icon, title, description, gradient, index }) => {
+const FeatureCard = ({ icon: Icon, title, description, gradient, index, badge }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -94,6 +95,13 @@ const FeatureCard = ({ icon: Icon, title, description, gradient, index }) => {
       onHoverEnd={() => setIsHovered(false)}
       className="relative group"
     >
+      {badge && (
+        <div className="absolute -top-3 -right-3 z-10">
+          <span className="bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">
+            {badge}
+          </span>
+        </div>
+      )}
       <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 hover:border-cyan-500/50 transition-all duration-300 h-full">
         {/* Gradient Background on Hover */}
         <motion.div

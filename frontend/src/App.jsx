@@ -8,6 +8,7 @@ import StartingPage from './pages/StartingPage';
 import Home from './pages/Home';
 import Upload from './pages/Upload';
 import About from './pages/About';
+import RealTime from './pages/RealTime';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<StartingPage />} />
             <Route path="/home" element={<Home />} />
             <Route path="/upload" element={<Upload />} />
+            <Route path="/realtime" element={<RealTime />} />
             <Route path="/about" element={<About />} />
             {/* Catch all route - redirect to home */}
             <Route path="*" element={<Navigate to="/home" replace />} />
@@ -63,6 +65,7 @@ const Navigation = () => {
           <div className="hidden md:flex items-center gap-8">
             <NavLink to="/home">Home</NavLink>
             <NavLink to="/upload">Upload</NavLink>
+            <NavLink to="/realtime">Real-Time</NavLink>
             <NavLink to="/about">About</NavLink>
             <Link to="/upload">
               <motion.button
@@ -99,6 +102,9 @@ const Navigation = () => {
                 </MobileNavLink>
                 <MobileNavLink to="/upload" onClick={() => setIsOpen(false)}>
                   Upload
+                </MobileNavLink>
+                <MobileNavLink to="/realtime" onClick={() => setIsOpen(false)}>
+                  Real-Time
                 </MobileNavLink>
                 <MobileNavLink to="/about" onClick={() => setIsOpen(false)}>
                   About

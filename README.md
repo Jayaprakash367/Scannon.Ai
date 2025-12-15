@@ -15,8 +15,10 @@
 ## 🌟 Features
 
 - **⚡ Lightning Fast Processing** - Process videos in seconds with optimized AI engine
+- **� Real-Time Blurring** - Live face and document blurring from your webcam
 - **🔒 Privacy First** - End-to-end encryption and secure processing
-- **🎯 High Accuracy** - 99.9% face detection accuracy using advanced ML models
+- **🎯 High Accuracy** - 95%+ face detection accuracy using MediaPipe AI
+- **🤖 AI-Powered Detection** - YOLOv8 + MediaPipe + EasyOCR for comprehensive privacy
 - **🎨 Modern UI** - Beautiful, responsive interface built with React and Tailwind CSS
 - **🚀 Real-time Updates** - See processing progress in real-time
 - **📱 Responsive Design** - Works seamlessly on desktop, tablet, and mobile
@@ -131,11 +133,26 @@ Frontend will be available at: `http://localhost:5173`
 
 ## 🎯 Usage
 
-1. **Visit** `http://localhost:5173` in your browser
+### 📹 Upload Mode (Video/Image Processing)
+1. **Visit** `http://localhost:5174` in your browser
 2. **Navigate** to the Upload page
-3. **Drag & drop** or select a video file
-4. **Click** "Process Video" to start AI processing
-5. **Download** your privacy-protected video when complete
+3. **Drag & drop** or select a video/image file
+4. **Click** "Process" to start AI processing
+5. **Download** your privacy-protected file when complete
+
+### 🔴 Real-Time Mode (Live Webcam)
+1. **Navigate** to the Real-Time page
+2. **Click** "Start Stream" to access your webcam
+3. **Grant** camera permissions when prompted
+4. **Watch** as faces and documents are blurred live!
+5. **Click** "Stop Stream" when done
+
+**What Gets Blurred:**
+- ✅ **Faces** - Any human face (MediaPipe AI - 95%+ accuracy)
+- ✅ **Documents** - Certificates, IDs, papers (shape + text detection)
+- ✅ **License Plates** - Car number plates (edge detection)
+- ✅ **Screens** - Phones, laptops, monitors (YOLOv8)
+- ✅ **Sensitive Text** - Phone numbers, emails, SSN (EasyOCR)
 
 ## 🛠️ Technology Stack
 
@@ -160,10 +177,11 @@ Once the backend is running, visit `http://localhost:8000/docs` for interactive 
 
 ### Main Endpoints
 
-- `POST /api/upload` - Upload and process video
+- `POST /api/upload` - Upload and process video/image
 - `GET /api/status/{filename}` - Check processing status
-- `GET /api/download/{filename}` - Download processed video
+- `GET /api/download/{filename}` - Download processed file
 - `DELETE /api/cleanup` - Clean up old files
+- `WS /ws/realtime` - WebSocket for real-time video streaming
 
 ## 🔧 Development
 
@@ -250,3 +268,8 @@ Project Link: [https://github.com/yourusername/scannon-ai](https://github.com/yo
   <p>Made with ❤️ by the Scannon.AI team</p>
   <p>⭐ Star us on GitHub if you like this project!</p>
 </div>
+
+ Run server
+ cd "C:\Users\jayaprakash.k\OneDrive\Documents\GitHub\Scannon.Ai\backend" && python main.py
+ RUN FRONTEND
+ cd "C:\Users\jayaprakash.k\OneDrive\Documents\GitHub\Scannon.Ai\frontend" && npm run dev
