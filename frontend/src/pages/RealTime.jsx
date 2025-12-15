@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
-import { Video, VideoOff, Camera, AlertCircle } from 'lucide-react';
+import { Video, VideoOff, Camera, AlertCircle, Server } from 'lucide-react';
 
 export default function RealTime() {
   const [isStreaming, setIsStreaming] = useState(false);
   const [error, setError] = useState('');
   const [stats, setStats] = useState({ faces: 0, documents: 0, total: 0 });
   const [fps, setFps] = useState(0);
+  const [backendAvailable, setBackendAvailable] = useState(null);
   
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -15,6 +16,24 @@ export default function RealTime() {
   const lastTimeRef = useRef(Date.now());
   const isStreamingRef = useRef(false);
   const animationIdRef = useRef(null);
+
+  // Check if backend is available
+  useEffect(() => {
+    const checkBackend = async () => {
+      try {
+        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+        const response = await fetch(`${apiUrl}/api/health`, { 
+          method: 'GET',
+          mode: 'cors'
+        });
+        setBackendAvailable(response.ok);
+      } catch (error) {
+        console.log('Backend not available:', error);
+        setBackendAvailable(false);
+      }
+    };
+    checkBackend();
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -48,8 +67,10 @@ export default function RealTime() {
         });
       }
       
-      // Connect to WebSocket
-      const ws = new WebSocket('ws://localhost:8000/ws/realtime');
+      // Connect to WebSocket with environment-aware URL
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'ws://localhost:8000/ws/realtime';
+      const wsUrl = backendUrl.replace('http', 'ws');
+      const ws = new WebSocket(wsUrl);
       wsRef.current = ws;
       
       ws.onopen = () => {
@@ -215,6 +236,25 @@ export default function RealTime() {
             Live face and document blurring from your webcam
           </p>
         </div>
+
+        {/* Backend Not Available Warning */}
+        {backendAvailable === false && (
+          <div className="max-w-2xl mx-auto mb-6 bg-yellow-500/20 border border-yellow-500 rounded-lg p-4 flex items-start gap-3">
+            <Server className="text-yellow-400 flex-shrink-0 mt-1" size={24} />
+            <div>
+              <p className="text-yellow-200 font-semibold">Backend Server Required</p>
+              <p className="text-yellow-100/80 text-sm mt-1">
+                Real-time blurring requires a backend server running. For local use, run:
+              </p>
+              <code className="text-cyan-400 text-xs mt-2 block bg-slate-800 p-2 rounded">
+                cd backend && python main.py
+              </code>
+              <p className="text-yellow-100/80 text-sm mt-2">
+                For production, deploy the backend to Railway, Render, or Heroku.
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* Error Message */}
         {error && (
