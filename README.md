@@ -23,7 +23,34 @@
 - **🚀 Real-time Updates** - See processing progress in real-time
 - **📱 Responsive Design** - Works seamlessly on desktop, tablet, and mobile
 
-## 🏗️ Project Structure
+## � Website Design
+
+### Home Page
+![Home Page](./screenshots/home.png)
+
+The landing page showcases the core value proposition with a modern hero section, feature highlights, and call-to-action buttons.
+
+### Upload & Process Page
+![Upload Page](./screenshots/upload.png)
+
+Intuitive upload interface for video and image files. Users can drag-and-drop or browse files for processing. Real-time progress updates show processing status.
+
+### Real-Time Privacy Protection
+![Real-Time Page](./screenshots/realtime.png)
+
+Live webcam streaming with real-time face and document blurring. See instant privacy protection in action!
+
+### About Page
+![About Page](./screenshots/about.png)
+
+Learn about our mission, values, and the cutting-edge technology powering Scannon.AI.
+
+### AI Assistant
+![AI Assistant](./screenshots/ai-assistant.png)
+
+Interactive AI assistant to help customize privacy protection for your specific needs.
+
+## �🏗️ Project Structure
 
 ```
 SCANNON.AI/
