@@ -64,19 +64,19 @@ const Home = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto"
+              className="max-w-4xl mx-auto bg-white/80 backdrop-blur-xl p-12 rounded-3xl border border-slate-200 shadow-xl"
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
                 Ready to Protect Your Privacy?
               </h2>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-slate-700 mb-8 max-w-2xl mx-auto font-medium">
                 Experience the power of AI-driven video privacy protection
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => window.location.href = '/upload'}
-                className="px-10 py-5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 rounded-full text-white font-bold text-lg shadow-2xl hover:shadow-cyan-500/50 transition-all"
+                className="px-10 py-5 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-700 rounded-full text-white font-bold text-lg shadow-2xl hover:shadow-cyan-500/50 transition-all font-bold"
               >
                 Get Started Now
               </motion.button>

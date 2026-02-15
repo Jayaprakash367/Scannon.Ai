@@ -62,10 +62,10 @@ const Features = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-700 bg-clip-text text-transparent">
             Powerful Features
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-800 max-w-2xl mx-auto font-medium">
             Everything you need to protect privacy in your videos with cutting-edge AI technology
           </p>
         </motion.div>
@@ -102,11 +102,11 @@ const FeatureCard = ({ icon: Icon, title, description, gradient, index, badge })
           </span>
         </div>
       )}
-      <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 hover:border-cyan-500/50 transition-all duration-300 h-full">
+      <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-8 border border-slate-200 hover:border-cyan-500/50 transition-all duration-300 h-full shadow-lg">
         {/* Gradient Background on Hover */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered ? 0.1 : 0 }}
+          animate={{ opacity: isHovered ? 0.05 : 0 }}
           className={`absolute inset-0 bg-gradient-to-br ${gradient} rounded-2xl`}
         />
 
@@ -132,8 +132,8 @@ const FeatureCard = ({ icon: Icon, title, description, gradient, index, badge })
         </div>
 
         {/* Content */}
-        <h3 className="text-2xl font-bold text-white mb-3 relative">{title}</h3>
-        <p className="text-gray-400 leading-relaxed relative">{description}</p>
+        <h3 className="text-2xl font-bold text-slate-900 mb-3 relative">{title}</h3>
+        <p className="text-slate-600 leading-relaxed relative font-medium">{description}</p>
 
         {/* Hover Indicator */}
         <motion.div

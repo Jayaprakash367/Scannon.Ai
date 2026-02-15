@@ -260,7 +260,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📧 Contact
 
-Project Link: [https://github.com/yourusername/scannon-ai](https://github.com/yourusername/scannon-ai)
+Project Link: [https://github.com/Jayaprakash367/Scannon.Ai](https://github.com/Jayaprakash367/Scannon.Ai)
 
 ---
 
@@ -268,8 +268,3 @@ Project Link: [https://github.com/yourusername/scannon-ai](https://github.com/yo
   <p>Made with ❤️ by the Scannon.AI team</p>
   <p>⭐ Star us on GitHub if you like this project!</p>
 </div>
-
- Run server
- cd "C:\Users\jayaprakash.k\OneDrive\Documents\GitHub\Scannon.Ai\backend" && python main.py
- RUN FRONTEND
- cd "C:\Users\jayaprakash.k\OneDrive\Documents\GitHub\Scannon.Ai\frontend" && npm run dev

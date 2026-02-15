@@ -43,7 +43,7 @@ const Navigation = () => {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -71,7 +71,7 @@ const Navigation = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full text-white font-semibold"
+                className="px-6 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full text-white font-bold"
               >
                 Get Started
               </motion.button>
@@ -81,7 +81,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white p-2"
+            className="md:hidden text-slate-900 p-2"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -126,15 +126,15 @@ const NavLink = ({ to, children }) => {
     <Link to={to}>
       <motion.div
         whileHover={{ scale: 1.05 }}
-        className={`relative font-medium transition-colors ${
-          isActive ? 'text-cyan-400' : 'text-gray-300 hover:text-white'
+        className={`relative font-bold transition-colors ${
+          isActive ? 'text-cyan-600' : 'text-slate-600 hover:text-slate-900'
         }`}
       >
         {children}
         {isActive && (
           <motion.div
             layoutId="activeNav"
-            className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-500 to-blue-500"
+            className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-600 to-blue-600"
           />
         )}
       </motion.div>
@@ -145,7 +145,7 @@ const NavLink = ({ to, children }) => {
 const MobileNavLink = ({ to, children, onClick }) => {
   return (
     <Link to={to} onClick={onClick}>
-      <div className="text-gray-300 hover:text-white font-medium py-2">
+      <div className="text-slate-600 hover:text-slate-900 font-bold py-2">
         {children}
       </div>
     </Link>
@@ -161,7 +161,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-slate-900 border-t border-white/10 py-12 px-4">
+    <footer className="bg-white border-t border-slate-200 py-12 px-4 shadow-inner">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
@@ -174,46 +174,46 @@ const Footer = () => {
                 Scannon.AI
               </h3>
             </div>
-            <p className="text-gray-400 text-sm">
+            <p className="text-slate-600 text-sm font-medium">
               AI-powered video privacy protection for everyone.
             </p>
           </div>
 
           {/* Product */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Product</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><Link to="/home" className="hover:text-cyan-400 transition-colors">Features</Link></li>
-              <li><Link to="/upload" className="hover:text-cyan-400 transition-colors">Upload</Link></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Pricing</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">API</a></li>
+            <h4 className="text-slate-900 font-bold mb-4">Product</h4>
+            <ul className="space-y-2 text-slate-600 text-sm font-medium">
+              <li><Link to="/home" className="hover:text-cyan-600 transition-colors">Features</Link></li>
+              <li><Link to="/upload" className="hover:text-cyan-600 transition-colors">Upload</Link></li>
+              <li><a href="#" className="hover:text-cyan-600 transition-colors">Pricing</a></li>
+              <li><a href="#" className="hover:text-cyan-600 transition-colors">API</a></li>
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><Link to="/about" className="hover:text-cyan-400 transition-colors">About</Link></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Contact</a></li>
+            <h4 className="text-slate-900 font-bold mb-4">Company</h4>
+            <ul className="space-y-2 text-slate-600 text-sm font-medium">
+              <li><Link to="/about" className="hover:text-cyan-600 transition-colors">About</Link></li>
+              <li><a href="#" className="hover:text-cyan-600 transition-colors">Blog</a></li>
+              <li><a href="#" className="hover:text-cyan-600 transition-colors">Careers</a></li>
+              <li><a href="#" className="hover:text-cyan-600 transition-colors">Contact</a></li>
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Legal</h4>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Cookie Policy</a></li>
+            <h4 className="text-slate-900 font-bold mb-4">Legal</h4>
+            <ul className="space-y-2 text-slate-600 text-sm font-medium">
+              <li><a href="#" className="hover:text-cyan-600 transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-cyan-600 transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="hover:text-cyan-600 transition-colors">Cookie Policy</a></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 text-center text-gray-400 text-sm">
+        <div className="pt-8 border-t border-slate-200 text-center text-slate-500 text-sm font-medium">
           <p>&copy; {new Date().getFullYear()} Scannon.AI. All rights reserved.</p>
         </div>
       </div>
@@ -275,12 +275,12 @@ const AIAssistantButton = () => {
                 damping: 25,
                 exit: { duration: 0.3 }
               }}
-              className="bg-slate-800/90 backdrop-blur-md text-white px-3 py-2 rounded-lg border border-white/10 shadow-lg max-w-xs"
+              className="bg-white/95 backdrop-blur-md text-slate-900 px-3 py-2 rounded-lg border border-slate-200 shadow-lg max-w-xs"
             >
-              <div className="text-sm font-medium">AI assistance for help</div>
-              <div className="text-xs text-gray-300 mt-1">Click to customize privacy protection</div>
+              <div className="text-sm font-bold">AI assistance for help</div>
+              <div className="text-xs text-slate-600 mt-1 font-medium">Click to customize privacy protection</div>
               {/* Arrow pointing to button */}
-              <div className="absolute top-1/2 right-0 transform translate-x-full -translate-y-1/2 border-l-8 border-l-slate-800/90 border-y-4 border-y-transparent"></div>
+              <div className="absolute top-1/2 right-0 transform translate-x-full -translate-y-1/2 border-l-8 border-l-white/95 border-y-4 border-y-transparent"></div>
             </motion.div>
           )}
         </AnimatePresence>

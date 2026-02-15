@@ -51,7 +51,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed text-center"
+              className="text-xl md:text-2xl text-slate-900 mb-12 max-w-3xl mx-auto leading-relaxed text-center font-medium"
             >
               Where AI meets privacy. Watch as faces and data vanish in real-time
               with our advanced blurring technology.
@@ -68,7 +68,7 @@ const Hero = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-10 py-5 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 rounded-full text-white font-bold text-lg shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300"
+                  className="px-10 py-5 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-700 rounded-full text-white font-bold text-lg shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300"
                 >
                   Experience the Blur
                 </motion.button>
@@ -78,7 +78,7 @@ const Hero = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-10 py-5 bg-white/10 backdrop-blur-md rounded-full text-white font-semibold text-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
+                  className="px-10 py-5 bg-slate-900/10 backdrop-blur-md rounded-full text-slate-900 font-bold text-lg border border-slate-900/20 hover:bg-slate-900/20 transition-all duration-300"
                 >
                   Learn More
                 </motion.button>
