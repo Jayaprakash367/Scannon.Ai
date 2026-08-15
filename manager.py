@@ -132,6 +132,70 @@ class ScannonManager:
         os.chdir(self.frontend_dir)
         subprocess.run(["npm", "run", "dev"])
     
+    def start_all(self):
+        """Start both backend and frontend servers concurrently"""
+        self.print_header("Starting Backend & Frontend Servers Concurrently")
+        
+        if sys.platform == "win32":
+            python_exe = self.backend_dir / "venv" / "Scripts" / "python.exe"
+        else:
+            python_exe = self.backend_dir / "venv" / "bin" / "python"
+        
+        import time
+        
+        # Start backend
+        self.print_info("Starting Backend (FastAPI) on http://localhost:8000...")
+        backend_process = subprocess.Popen(
+            [str(python_exe), "main.py"],
+            cwd=self.backend_dir
+        )
+        
+        # Give backend a moment to initialize
+        time.sleep(1)
+        
+        # Start frontend
+        self.print_info("Starting Frontend (Vite) on http://localhost:5173...")
+        frontend_process = subprocess.Popen(
+            "npm run dev",
+            shell=True,
+            cwd=self.frontend_dir
+        )
+        
+        self.print_success("Both servers running in background. Press Ctrl+C to stop.")
+        
+        try:
+            # Wait for both processes
+            while True:
+                backend_exit = backend_process.poll()
+                frontend_exit = frontend_process.poll()
+                
+                if backend_exit is not None:
+                    self.print_error(f"Backend stopped with exit code {backend_exit}")
+                    break
+                if frontend_exit is not None:
+                    self.print_error(f"Frontend stopped with exit code {frontend_exit}")
+                    break
+                time.sleep(1)
+        except KeyboardInterrupt:
+            self.print_info("\nShutting down both servers...")
+        finally:
+            # Clean shutdown of both processes
+            try:
+                backend_process.terminate()
+                backend_process.wait(timeout=2)
+            except Exception:
+                pass
+            
+            try:
+                if sys.platform == "win32":
+                    subprocess.run(f"taskkill /F /T /PID {frontend_process.pid}", shell=True, capture_output=True)
+                else:
+                    frontend_process.terminate()
+                    frontend_process.wait(timeout=2)
+            except Exception:
+                pass
+            self.print_success("All servers stopped successfully.")
+    
     def build_frontend(self):
         """Build the frontend for production"""
         self.print_header("Building Frontend")
@@ -180,7 +244,7 @@ def main():
     parser = argparse.ArgumentParser(description="Scannon.AI Project Manager")
     parser.add_argument(
         'command',
-        choices=['setup', 'setup-backend', 'setup-frontend', 'start-backend', 
+        choices=['setup', 'setup-backend', 'setup-frontend', 'start', 'start-backend', 
                  'start-frontend', 'build', 'test', 'status'],
         help='Command to execute'
     )
@@ -196,6 +260,8 @@ def main():
             manager.setup_backend()
         elif args.command == 'setup-frontend':
             manager.setup_frontend()
+        elif args.command == 'start':
+            manager.start_all()
         elif args.command == 'start-backend':
             manager.start_backend()
         elif args.command == 'start-frontend':
