@@ -122,27 +122,7 @@ const Upload = () => {
             />
           </div>
 
-          {/* Privacy Notice Card */}
-          <div className="mt-12 p-8 rounded-3xl shadow-xl border bg-zinc-900 text-white border-black relative overflow-hidden">
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                  <Lock className="w-6 h-6 text-emerald-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                    Bulletproof Privacy Guarantee
-                    <span className="text-xs font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full">
-                      VERIFIED
-                    </span>
-                  </h3>
-                  <p className="text-zinc-300 text-sm font-medium leading-relaxed max-w-2xl">
-                    Your videos are processed 100% locally in your browser memory and purged upon download. Zero data, frames, or metadata are ever stored or transmitted to external servers.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </motion.div>
       </div>
     </div>
